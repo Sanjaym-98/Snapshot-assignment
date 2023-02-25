@@ -1,28 +1,38 @@
-// App.js
 
-import React from 'react';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-import { PhotoProvider } from './components/Photocontext';
-import MountainPage from './components/Montainpage';
-import BeachPage from './components/Beachpage';
-import BirdPage from './components/Birdpage';
-import FoodPage from './components/Foodpage';
-import SearchPage from './components/Searchpage';
+import BeachPage from "./components/Beachpage";
+import MountainPage from "./components/Montainpage";
 
-function App() {
-  return (
-    <Router>
-      <PhotoProvider>
-        <Switch>
-          <Route exact path="/" component={MountainPage} />
-          <Route path="/beaches" component={BeachPage} />
-          <Route path="/birds" component={BirdPage} />
-          <Route path="/food" component={FoodPage} />
-          <Route path="/search" component={SearchPage} />
-        </Switch>
-      </PhotoProvider>
-    </Router>
-  );
+
+import BirdPage from "./components/Birdpage";
+import {BrowserRouter,Routes,Route} from "react-router-dom"
+import FoodPage from "./components/Foodpage";
+import SearchPage from "./components/Searchpage";
+
+
+
+
+const App=()=>{
+    return(
+        <div id="main">
+
+
+         <BrowserRouter>
+         <Routes>
+
+
+            <Route path="/" element={<SearchPage/>}/>
+            <Route path="mountain" element={<MountainPage/>}/>
+            <Route path="bird" element={<BirdPage/>}/>
+            <Route path="food" element={<FoodPage/>} />
+            <Route path="beach" element={<BeachPage/>}/>
+
+            
+         </Routes>
+         </BrowserRouter>
+          
+        </div>
+    )
+
 }
 
 export default App;
